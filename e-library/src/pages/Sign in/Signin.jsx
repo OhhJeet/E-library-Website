@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import '../Login/login.css'
 import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
@@ -36,97 +37,64 @@ const SignInForm = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Sign In</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
-          <label htmlFor="name" style={styles.label}>User Name:</label>
+    <div className={'login-boxcontainer'}>
+      <div 
+      style={{width:'100%'}} 
+      className="login-container">
+      <h2 style={{
+        color:'white'
+      }}>Sign In</h2>
+      <form style={{
+        color:'white',width:'100%'
+      }} onSubmit={handleSubmit} >
+        <div>
+          <label htmlFor="name" >User Name:</label><br></br>
           <input
+          style={{
+            width:'100%'
+          }}
             type="text"
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            style={styles.input}
+            
           />
         </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="email" style={styles.label}>Email:</label>
+        <div>
+          <label htmlFor="email" >Email:</label><br></br>
           <input
+          style={{
+            width:'100%'
+          }}
             type="email"
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={styles.input}
+            
           />
         </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="password" style={styles.label}>Password:</label>
+        <div>
+          <label htmlFor="password" >Password:</label><br></br>
           <input
+          style={{
+            width:'100%'
+          }}
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={styles.input}
+            
           />
         </div>
-        <button type="submit" style={styles.button}>Sign In</button>
+        <button type="submit">Sign In</button>
       </form>
-      {message && <p style={styles.message}>{message}</p>}
+      {message && <p >{message}</p>}
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    width: "300px",
-    margin: "0 auto",
-    textAlign: "center",
-    fontFamily: "Arial, sans-serif",
-    border: "1px solid #ccc",
-    padding: "20px",
-    borderRadius: "8px",
-    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  formGroup: {
-    marginBottom: "15px",
-  },
-  label: {
-    display: "block",
-    marginBottom: "5px",
-    fontWeight: "bold",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    fontSize: "16px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-  },
-  button: {
-    padding: "10px 15px",
-    backgroundColor: "#007BFF",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontSize: "16px",
-  },
-  message: {
-    marginTop: "10px",
-    fontSize: "14px",
-    color: "green",
-  },
 };
 
 export default SignInForm;
